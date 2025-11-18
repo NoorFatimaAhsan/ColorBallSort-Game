@@ -1,6 +1,6 @@
 
 Color Ball Sort Puzzle  
- Data Structures and Algorithms Based Implementation 
+Data Structures and Algorithms Based Implementation 
  
 1. Introduction 
 The Color Ball Sort Puzzle Game is a logic-based puzzle where the player organizes colored balls 

@@ -90,67 +90,78 @@ Vector
         • random access is required by heapify operations 
     
 Min-Heap For Sorting Leaderboard 
-    In this project, the leaderboard requires ranking players based on three priority conditions: 
-        1. Players who won should always rank above those who lost 
-        2. Among winners or losers, the player with fewer moves should rank higher 
-        3. If moves are same, the player with less time should rank higher 
-    This creates a multi-key ranking system and a Min-Heap is an ideal data structure for 
-    implementing such priority rules. 
+
+       In this project, the leaderboard requires ranking players based on three priority conditions: 
+           1. Players who won should always rank above those who lost 
+           2. Among winners or losers, the player with fewer moves should rank higher 
+           3. If moves are same, the player with less time should rank higher 
+       This creates a multi-key ranking system and a Min-Heap is an ideal data structure for 
+       implementing such priority rules. 
+    
 Min-Heap + Heap Sort 
+
         void heapifyDownMin(vector<Player>& heap, int n, int i); 
         void heapSort(vector<Player>& arr); 
+        
     1. Custom Ranking Priority 
-        We rank players by: 
-        1. Winner   
-        2. Least Moves  
-        3. Least Time 
-        A Min-Heap naturally supports multi-criteria comparison so the worst record rises to the top and gets removed first during heap           sort. 
+          We rank players by: 
+          1. Winner   
+          2. Least Moves  
+          3. Least Time 
+          A Min-Heap naturally supports multi-criteria comparison so the worst record rises to the top and gets removed first during heap           sort. 
+          
     2. Extracting Loser First for Final Ascending Ranking 
-        Leaderboards display best players at the top so during heap sort we repeatedly extract the minimum (loser) and place it at the             end, resulting in the array being sorted from best to worst. 
+          Leaderboards display best players at the top so during heap sort we repeatedly extract the minimum (loser) and place it at the             end, resulting in the array being sorted from best to worst. 
+          
     3. Efficient Sorting for Dynamic Leaderboards 
-        Min-Heap operations run in: 
-        • Build Heap: O(N) 
-        • Each extraction: O(log N) 
-        • Heap Sort Total: O(N log N) 
+          Min-Heap operations run in: 
+          • Build Heap: O(N) 
+          • Each extraction: O(log N) 
+          • Heap Sort Total: O(N log N) 
+          
     4. Stable and Predictable Ordering 
-        Heap ensures strict ordering based on our compare function. 
-        This avoids ambiguous cases where two players share moves but differ in win or time. 
+          Heap ensures strict ordering based on our compare function. 
+          This avoids ambiguous cases where two players share moves but differ in win or time. 
+          
     5. Handles Increasing Data Smoothly 
-        As leaderboard entries grow, heap-based sorting keeps performance stable compared to simple 
-        repeated sorting. 
+          As leaderboard entries grow, heap-based sorting keeps performance stable compared to simple 
+          repeated sorting. 
+          
     We didn’t use a Binary Search Tree or Vector because: 
-        A tree may become unbalanced, making operations degrade to O(N). 
-        Heap always maintains complete-tree balance. 
-        Vector sort directly sorts values but does not allow controlled extraction needed during heap 
-        sort. 
+         A tree may become unbalanced, making operations degrade to O(N). 
+         Heap always maintains complete-tree balance. 
+         Vector sort directly sorts values but does not allow controlled extraction needed during heap 
+         sort. 
  
  
-4. Main Features 
+4. Main Features
+   
     1. Interactive Gameplay: Players can select tubes and move balls. 
     2. Move & Time Tracking: Displays number of moves and elapsed time. 
     3. Win/Loss Detection: Automatically detects win or max-move loss. 
     4. Leaderboard: Maintains a sorted record of player performance in a file. 
     5. Graphics & Audio: Enhances user experience (SFML graphics and music). 
  
-5. Algorithms Implemented 
-1. Game Win Check 
-    • Function checkWin() iterates over all tubes to check if they are sorted. 
-    • Each tube is considered sorted if all balls are of the same color using isSorted(). 
-2. Ball Transfer Logic 
-    • Player selects a source tube and a target tube. 
-    • Checks: 
-        1. Source tube is not empty. 
-        2. Target tube is not full. 
-    • Transfers the top ball using stack.pop() and stack.push(). 
-3. Leaderboard Sorting 
-    • Heap sort is used to sort players by: 
-        1. Win status 
-        2. Number of moves 
-        3. Time taken 
-    • Ensures players with wins, fewer moves, and less time appear first. 
+5. Algorithms Implemented
+   
+    1. Game Win Check 
+          • Function checkWin() iterates over all tubes to check if they are sorted. 
+          • Each tube is considered sorted if all balls are of the same color using isSorted(). 
+    2. Ball Transfer Logic 
+          • Player selects a source tube and a target tube. 
+          • Checks: 
+              1. Source tube is not empty. 
+              2. Target tube is not full. 
+          • Transfers the top ball using stack.pop() and stack.push(). 
+    3. Leaderboard Sorting 
+          • Heap sort is used to sort players by: 
+              1. Win status 
+              2. Number of moves 
+              3. Time taken 
+          • Ensures players with wins, fewer moves, and less time appear first. 
  
-6. Conclusion 
-This project demonstrates the practical use of stacks, vectors, and heaps in implementing a 
-real-world puzzle game. The focus on data structure manipulation and algorithmic efficiency 
-makes it a strong representation of DSA concepts, while the graphical and audio components 
-enhance user engagement.
+7. Conclusion
+     This project demonstrates the practical use of stacks, vectors, and heaps in implementing a 
+     real-world puzzle game. The focus on data structure manipulation and algorithmic efficiency 
+     makes it a strong representation of DSA concepts, while the graphical and audio components 
+     enhance user engagement.
